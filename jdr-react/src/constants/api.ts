@@ -1,4 +1,5 @@
 export const API_ROUTES = {
   auth: "/auth",
-  users: "/users"
+  users: "/users",
+  characters: "/characters"
 };
