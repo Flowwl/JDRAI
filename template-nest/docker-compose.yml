@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     ports:
       - 27017:27017
-    container_name: studyo-mongodb
+    container_name: jdrai-mongodb
     environment:
-      - MONGO_INITDB_DATABASE=studyo-mongodb
-      - MONGO_INITDB_ROOT_USERNAME=studyo
-      - MONGO_INITDB_ROOT_PASSWORD=studyo
+      - MONGO_INITDB_DATABASE=jdrai
+      - MONGO_INITDB_ROOT_USERNAME=jdrai
+      - MONGO_INITDB_ROOT_PASSWORD=jdrai
