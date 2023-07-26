@@ -7,6 +7,6 @@
   "scripts": {
     "bootstrap": "./install.sh 'npx yarn --silent --frozen-lockfile'",
     "runBackend": "cd ./template-express && yarn dev",
-    "runFrontend": "cd ./template-react && yarn dev"
+    "runFrontend": "cd jdr-react && yarn dev"
   }
 }

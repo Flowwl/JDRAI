@@ -7,8 +7,8 @@ BLUE_COLOR='\033[34m'
 NO_COLOR='\033[0m'
 
 SUB_REPO_PATHS=(
-  "template-express" \
-  "template-react"
+  "jdr-nest" \
+  "jdr-react"
 )
 
 for path in ${SUB_REPO_PATHS[@]}
