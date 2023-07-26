@@ -10,12 +10,12 @@ const ComponentsView: FC = () => {
     <div className="px-10 flex flex-col gap-3">
       <h1>Component View</h1>
       <section className="flex gap-3">
-        Add Button sm <AddButton size="sm"/>
-        md <AddButton size="md"/>
+        Add Button sm <AddButton size="sm" />
+        md <AddButton size="md" />
       </section>
       <section className="flex gap-3">
         Search Bar
-        <SearchBar/>
+        <SearchBar />
       </section>
       <section className="flex gap-3">
         Header Disclosure
@@ -52,7 +52,7 @@ const ComponentsView: FC = () => {
       </section>
       <section className="flex gap-3">
         IconHeaderButton
-        <IconHeaderButton icon="BLUEPRINT" label="Reading" className="bg-gray-800"/>
+        <IconHeaderButton icon="BLUEPRINT" label="Reading" className="bg-gray-800" />
       </section>
       <section className="flex gap-3">
         Dropdown

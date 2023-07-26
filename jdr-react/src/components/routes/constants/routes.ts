@@ -8,7 +8,7 @@ export const ROUTES: Record<RouteKeys, AppRouteInterface> = {
   HOME: {
     path: "/",
     component: MainView,
-    type: "PRIVATE"
+    type: "PUBLIC"
   },
 
   /** CONNEXION */
