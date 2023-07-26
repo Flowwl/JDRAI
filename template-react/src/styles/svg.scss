@@ -1,0 +1,17 @@
+.svg > * {
+  height: 100%;
+  width: 100%;
+  fill: currentColor;
+  color: inherit;
+
+  //* {
+  //  fill: currentColor;
+  //  color: inherit;
+  //}
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+

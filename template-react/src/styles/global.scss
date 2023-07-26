@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+
+*::-webkit-scrollbar {
+  width: 0.4em !important;
+  height: 0.4em !important;
+  background-color: theme("colors.gray.500");
+  border-radius: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: theme("colors.gray.300");
+  border-radius: 2px !important
+}

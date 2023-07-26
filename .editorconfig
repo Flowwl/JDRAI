@@ -1,0 +1,25 @@
+root = true
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = false
+insert_final_newline = true
+
+ij_javascript_use_double_quotes = true
+ij_typescript_use_double_quotes = true
+ij_javascript_use_semicolon_after_statement = true
+ij_typescript_use_semicolon_after_statement = true
+ij_javascript_keep_simple_methods_in_one_line = true
+ij_typescript_keep_simple_methods_in_one_line = true
+
+ij_javascript_enforce_trailing_comma = remove
+ij_typescript_enforce_trailing_comma = remove
+
+ij_typescript_array_initializer_wrap = off
+ij_typescript_align_multiline_array_initializer_expression = false
+
+
+# JSON
+ij_json_wrap_long_lines = false

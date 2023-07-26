@@ -1,0 +1,100 @@
+{
+  "name": "template-react",
+  "version": "0.1.0",
+  "private": true,
+  "cracoConfig": "src/config/craco.config.js",
+  "scripts": {
+    "start": "craco start --config src/config/craco.config.js",
+    "dev": "yarn validate && yarn start",
+    "build": "craco build --config src/config/craco.config.js",
+    "deploy": "yarn global add serve && serve -s build",
+    "eject": "craco eject --config src/config/craco.config.js",
+    "clean": "rm -rf node_modules",
+    "clean-install": "yarn clean && yarn install",
+    "analyze": "yarn clean && yarn install && yarn build && source-map-explorer 'build/static/js/*.js'",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --no-error-on-unmatched-pattern --quiet --fix --config .eslintrc.js",
+    "prettier": "prettier --write \"**/*.+(ts|tsx)\" --config .prettierrc.js",
+    "typing": "tsc --project ./tsconfig.json",
+    "validate": "yarn lint && yarn prettier",
+    "test": "jest --config src/config/jest.config.ts --logHeapUsage",
+    "coverage": "jest --coverage --config src/config/jest.config.ts"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@craco/craco": "^7.0.0-alpha.3",
+    "@headlessui/react": "^1.6.6",
+    "@heroicons/react": "^2.0.10",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "date-fns": "^2.29.2",
+    "node-sass": "^7.0.1",
+    "qs": "^6.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
+    "react-icons": "^4.4.0",
+    "react-query": "^3.39.2",
+    "react-rnd": "^10.3.7",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^9.0.7",
+    "react-tooltip": "^4.4.3",
+    "sass-loader": "^12.4.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "web-vitals": "^2.1.2"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/jest": "^28.1.5",
+    "@types/node": "^18.0.4",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-query": "^1.2.9",
+    "@types/tailwindcss": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "autoprefixer": "^10.4.7",
+    "craco-alias": "^3.0.1",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "http-proxy-middleware": "^2.0.6",
+    "node-sass": "^7.0.1",
+    "pathfinding": "^0.4.18",
+    "paths-js": "^0.4.11",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.1",
+    "prettier": "^2.7.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "source-map-explorer": "^2.5.2",
+    "svg-inline-react": "^3.2.1",
+    "tailwindcss": "^3.1.6",
+    "ts-jest": "^28.0.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}

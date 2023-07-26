@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esNext",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

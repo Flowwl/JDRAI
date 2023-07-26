@@ -1,0 +1,13 @@
+# Binaries
+node_modules
+dist
+.idea
+.env
+
+*.log
+.nyc_output
+.yarn-lock
+
+mongo-volume
+
+.migrate

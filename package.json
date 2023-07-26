@@ -1,0 +1,12 @@
+{
+  "name": "template-mern",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Florian Padel",
+  "license": "UNLICENSED",
+  "scripts": {
+    "bootstrap": "./install.sh 'npx yarn --silent --frozen-lockfile'",
+    "runBackend": "cd ./template-express && yarn dev",
+    "runFrontend": "cd ./template-react && yarn dev"
+  }
+}

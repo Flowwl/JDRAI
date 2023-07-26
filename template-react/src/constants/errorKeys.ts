@@ -1,0 +1,4 @@
+export const ERRORS_KEYS = {
+  NONE: "NONE",
+  USER_NOT_CONFIRMED: "USER_NOT_CONFIRMED"
+};

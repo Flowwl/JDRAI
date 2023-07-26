@@ -1,0 +1,65 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+        
+    services:
+      mongoDb:
+        image: mongo:4.2.6
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_DATABASE: template-mongodb
+          MONGO_INITDB_ROOT_USERNAME: template
+          MONGO_INITDB_ROOT_PASSWORD: template
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone "Europe/Paris"
+      - name: Nvm Installation
+        run: |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+          export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh"
+          eval "[ -f .nvmrc ] && nvm install || nvm install v16.10.0" #install node
+          nvm use
+      - name: Installation
+        run: yarn install
+      - name: Test
+        run: |
+          yarn start
+          yarn test
+        env:
+          APP_NAME: Template
+          PORT: 5005
+          API_URL: localhost
+          APP_URL: localhost:8080
+          CI_MODE: "on"
+          #APP/CLIENT
+          APP_MAIN_ADMIN_EMAIL: example@example.com,
+          APP_MAIN_ADMIN_PASSWORD: example
+          #DB
+          DATABASE_URL: mongodb://localhost:27017/template-mongodb
+          DATABASE_NAME: template-mongodb
+          #JWT
+          JWT_API_KEY: JWT_API_KEY,
+          EXPIRATION_TOKEN: 36000
+          #MAIL
+          NO_REPLY_EMAIL: noreply@example.com
+          NO_REPLY_PASSWORD: example
+          CONTACT_EMAIL: contact@example.com
+      

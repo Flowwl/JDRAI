@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    container_name: studyo-mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=studyo-mongodb
+      - MONGO_INITDB_ROOT_USERNAME=studyo
+      - MONGO_INITDB_ROOT_PASSWORD=studyo
