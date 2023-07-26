@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "./config";
-import { EventEmitterModule } from '@nestjs/event-emitter';
+import { EventEmitterModule } from "@nestjs/event-emitter";
 import { AuthModule, UsersModule } from "./modules";
 import { DatabaseModule } from "./database";
 import { LoggingModule } from "./logging";
@@ -15,7 +15,7 @@ const COLLECTIONS_MODULES = [AuthModule, UsersModule];
     LoggingModule,
     EventEmitterModule.forRoot(),
     ...COLLECTIONS_MODULES,
-    RolesModule,
+    RolesModule
   ],
   controllers: [],
   providers: []

@@ -39,6 +39,7 @@
     "mongodb-memory-server": "^8.13.0",
     "mongoose": "^7.0.1",
     "nest-winston": "^1.9.3",
+    "openai": "^3.3.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "ts-migrate-mongoose": "^3.1.8",

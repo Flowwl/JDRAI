@@ -10,6 +10,7 @@ export type EnvironmentVariables = {
   API_PREFIX: string;
   JWT_API_KEY: string;
   EXPIRATION_TOKEN: number;
+  OPEN_AI_KEY: string;
 };
 
 export function buildConfig(): EnvironmentVariables {
@@ -24,6 +25,7 @@ export function buildConfig(): EnvironmentVariables {
     PORT: parseInt(process.env.PORT),
     API_PREFIX: process.env.API_PREFIX,
     JWT_API_KEY: process.env.JWT_API_KEY,
-    EXPIRATION_TOKEN: parseInt(process.env.EXPIRATION_TOKEN)
+    EXPIRATION_TOKEN: parseInt(process.env.EXPIRATION_TOKEN),
+    OPEN_AI_KEY: process.env.OPEN_AI_KEY
   };
 }
