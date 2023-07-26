@@ -25,7 +25,7 @@ export const request = async <T>(customConfig: Partial<AxiosRequestCustomConfig>
       data: body && JSON.stringify(body),
       params: params,
       paramsSerializer: (parameters) => qs.stringify(parameters, { encode: false }),
-      timeout: 10000,
+      timeout: undefined,
       withCredentials: false,
       ...customConfig
     })

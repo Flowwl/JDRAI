@@ -1,1 +1,1 @@
-export { GenerateCharactersController } from "./findAllUsers.controller";
+export { GenerateCharactersController } from "./generateCharacters.controller";
