@@ -22,6 +22,7 @@ const MainView: FC = () => {
           {data &&
             data.map((char) => (
               <ul key={char.lastName}>
+                <li>{char.img && <img src={char.img} />}</li>
                 <li>
                   {char.firstName} {char.lastName}
                 </li>

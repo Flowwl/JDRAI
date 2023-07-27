@@ -14,3 +14,5 @@ export const CHARACTER_GENERATION = [
   "Les valeurs seront en français.",
   "Le JSON sera sous la forme `{ characters: ma liste de character }`"
 ];
+
+export const CHARACTER_IMAGE_GENERATION = ["In Medieval fantasy style.", "Only upper body", "With a White background"];

@@ -13,4 +13,5 @@ export type Character = {
   charisma: number;
   story: string;
   inventory: string[];
+  img?: string;
 };

@@ -22,4 +22,9 @@ export class OpenAIService {
       messages: messages
     });
   }
+
+  async generateImage(description: string) {
+    const response = await this.openAIApi.createImage({ prompt: description, n: 1, size: "1024x1024" });
+    return response["data"]["data"][0]["url"];
+  }
 }

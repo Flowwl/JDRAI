@@ -13,6 +13,7 @@ export type Character = {
   charisma: number;
   story: string;
   inventory: string[];
+  img?: string;
 };
 
 export const CHARACTERISTICS = [

@@ -1,7 +1,12 @@
 import { Controller, Post } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { OpenAIService } from "@backend/externalModules";
-import { CHARACTER_CONTEXT, CHARACTER_GENERATION } from "@backend/modules/characters/prompt";
+import {
+  CHARACTER_CONTEXT,
+  CHARACTER_GENERATION,
+  CHARACTER_IMAGE_GENERATION
+} from "@backend/modules/characters/prompt";
+import { Character } from "@backend/modules/characters/types";
 
 @ApiTags("characters")
 @Controller("characters/generate")
@@ -14,7 +19,13 @@ export class GenerateCharactersController {
       { role: "system", content: CHARACTER_CONTEXT.join("") },
       { role: "user", content: CHARACTER_GENERATION.join("") }
     ]);
-    const { characters } = JSON.parse(result.data.choices[0].message.content);
-    return characters;
+    const { characters }: { characters: Character[] } = JSON.parse(result.data.choices[0].message.content);
+    const charsWithImage = await Promise.all(
+      characters.map(async (c) => ({
+        ...c,
+        img: await this.openAIService.generateImage(`${c.race} ${c.class} ${CHARACTER_IMAGE_GENERATION.join("")}`)
+      }))
+    );
+    return charsWithImage;
   }
 }
