@@ -1,5 +1,6 @@
 export const API_ROUTES = {
   auth: "/auth",
   users: "/users",
-  characters: "/characters"
+  characters: "/characters",
+  stories: "/stories"
 };

@@ -17,7 +17,8 @@
     "typing": "tsc --project ./tsconfig.json",
     "validate": "yarn lint && yarn prettier",
     "test": "jest --config src/config/jest.config.ts --logHeapUsage",
-    "coverage": "jest --coverage --config src/config/jest.config.ts"
+    "coverage": "jest --coverage --config src/config/jest.config.ts",
+    "circular": "madge --circular ."
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +45,7 @@
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "date-fns": "^2.29.2",
+    "madge": "^6.1.0",
     "node-sass": "^7.0.1",
     "qs": "^6.11.0",
     "react": "^18.2.0",

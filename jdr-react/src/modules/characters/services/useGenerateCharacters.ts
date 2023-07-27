@@ -1,7 +1,7 @@
+import { Character } from "../types";
+import { characterQueryKeys } from "./_charactersQueryKeys";
 import { API_ROUTES } from "@/constants/api";
 import { MutationParams, MutationResult, useMutation } from "@/hooks/useQuery";
-import { characterQueryKeys } from "@/modules/characters/services/_charactersQueryKeys";
-import { Character } from "@/modules/characters/types";
 import { request } from "@/utils/axios";
 
 export const useGenerateCharacters = (

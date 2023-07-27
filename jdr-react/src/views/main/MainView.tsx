@@ -1,8 +1,7 @@
 import * as React from "react";
 import { FC } from "react";
-import { Spinner } from "@/components/atoms";
-import { Button } from "@/components/atoms/actions";
-import { useGenerateCharacters } from "@/modules/characters/services";
+import { Spinner, Button } from "@/components/atoms";
+import { useGenerateCharacters } from "@/modules/characters";
 
 const MainView: FC = () => {
   const { mutate: generateCharacter, data, isLoading } = useGenerateCharacters();
