@@ -7,8 +7,8 @@ import { BcryptModule } from "@backend/externalModules";
 import { UserRegisteredListeners } from "./listeners";
 import { FindAllUsersLib } from "./lib";
 
-const SERVICES = [UsersService]
-const LIBS = [FindAllUsersLib]
+const SERVICES = [UsersService];
+const LIBS = [FindAllUsersLib];
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: User.name, schema: UsersSchema }]), BcryptModule],

@@ -7,5 +7,3 @@ export class Story {
   @Prop()
   actions: string[];
 }
-
-export const CHARACTERISTICS = ["description"];

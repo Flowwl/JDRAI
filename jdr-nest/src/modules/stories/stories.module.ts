@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { OpenAIModule } from "@backend/externalModules";
 import { GenerateStoriesController } from "./controllers";
-import { StoriesPrompt } from "@backend/modules/stories/stories.prompt";
+import { StoriesPrompt } from "./stories.prompt";
 
 @Module({
   imports: [OpenAIModule],

@@ -1,11 +1,11 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { AppPrompt } from "@backend/modules/app.prompt";
 import { Character } from "@backend/modules/characters/types";
 import { OpenAIService } from "@backend/externalModules";
 
 @Injectable()
 export class CharactersPrompt extends AppPrompt {
-  constructor(@Inject() private readonly openAIService: OpenAIService) {
+  constructor(private readonly openAIService: OpenAIService) {
     super();
   }
 

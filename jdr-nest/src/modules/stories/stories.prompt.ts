@@ -1,18 +1,11 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { AppPrompt } from "@backend/modules/app.prompt";
 import { Character } from "@backend/modules/characters/types";
 import { OpenAIService } from "@backend/externalModules";
 
 @Injectable()
 export class StoriesPrompt extends AppPrompt {
-  storyGenerationUserContext = [
-    "Génère-moi une histoire",
-    "Retourne-moi juste le code json sans rien d'autre",
-    "Les valeurs seront en français.",
-    "Le JSON sera sous la forme `{ description: mon histoire, actions: liste de 3 actions à effectuer pour avancer dans l'histoire }`"
-  ];
-
-  constructor(@Inject() private readonly openAIService: OpenAIService) {
+  constructor(private readonly openAIService: OpenAIService) {
     super();
   }
 
@@ -33,6 +26,11 @@ export class StoriesPrompt extends AppPrompt {
   }
 
   private getStoryGenerationUserContext() {
-    return this.storyGenerationUserContext.join(" ");
+    return [
+      "Génère-moi une histoire avec 3 actions à effectuer par le jouer pour avancer dans l'histoire",
+      "Retourne-moi juste le code json sans rien d'autre",
+      "Les valeurs seront en français.",
+      "Le JSON sera sous la forme `{ description: mon histoire, actions: liste de 3 actions à effectuer pour avancer dans l'histoire }`"
+    ].join(" ");
   }
 }
