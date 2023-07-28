@@ -20,7 +20,9 @@ const SelectCharacterSection: FC<SelectCharacterSectionProps> = ({ className }) 
     <div className={cx(className)}>
       <Button onClick={onSubmit}>GenerateCharacters</Button>
       {isLoading && <Spinner />}
-      <div className="flex">{data && data.map((char) => <CharacterPreview key={char.firstName} char={char} />)}</div>
+      <div className="flex mt-5">
+        {data && data.map((char) => <CharacterPreview key={char.firstName} char={char} />)}
+      </div>
     </div>
   );
 };

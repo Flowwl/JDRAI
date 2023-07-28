@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FC } from "react";
-import SelectCharacterSection from "@/modules/characters/components/SelectCharacterSection";
+import { SelectCharacterSection } from "@/modules/characters";
+import { StorySection } from "@/modules/stories";
 
 const MainView: FC = () => {
   return (
@@ -8,7 +9,7 @@ const MainView: FC = () => {
       <div className="mx-auto my-auto flex flex-col text-center gap-8">
         <h1 className="text-xl">JDRAI</h1>
         <SelectCharacterSection />
-        <SelectCharacterSection />
+        <StorySection />
       </div>
     </div>
   );
