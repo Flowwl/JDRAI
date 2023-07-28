@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { YoutubeAPIService } from "./youtubeAPI.service";
 
 @Module({
-  providers: [YoutubeAPIService]
+  providers: [YoutubeAPIService],
+  exports: [YoutubeAPIService]
 })
-export class youtubeAPIModule {}
+export class YoutubeAPIModule {}

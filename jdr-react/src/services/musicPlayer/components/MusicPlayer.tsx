@@ -1,28 +1,25 @@
 import * as React from "react";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import ReactPlayer from "react-player";
+import { useGetMusicUrl } from "@/modules/ambient";
 
 interface MusicPlayerProps {
   keyword?: string;
 }
 
 const MusicPlayer: FC<MusicPlayerProps> = ({ keyword = "JDR Ambient music" }) => {
-  const [url, setUrl] = useState("");
+  const [isMuted, setIsMuted] = useState(true);
+  const { data: url } = useGetMusicUrl(keyword);
 
-  useEffect(() => {
-    async function fetchVideo() {
-      const video = await youtubesearchapi.GetListByKeyword(keyword, false, 1);
-      if (!video || video.videos.length === 0) {
-        return;
-      }
-
-      setUrl(`${YOUTUBE_URL}/watch?v=${video.videos[0].id}`);
-    }
-
-    fetchVideo();
-  }, []);
-
-  return <ReactPlayer playing url={url} />;
+  if (!url) {
+    return null;
+  }
+  return (
+    <div>
+      <ReactPlayer playing width={0} height={0} url={url} volume={50} muted={isMuted} />
+      <button onClick={() => setIsMuted((prevState) => !prevState)}>{isMuted ? "Unmute" : "Mute"}</button>
+    </div>
+  );
 };
 
 export default MusicPlayer;

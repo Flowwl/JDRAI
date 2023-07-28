@@ -1,12 +1,12 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "./config";
 import { EventEmitterModule } from "@nestjs/event-emitter";
-import { AuthModule, CharactersModule, StoriesModule, UsersModule, RoomsModule } from "./modules";
+import { AuthModule, CharactersModule, StoriesModule, UsersModule, RoomsModule, AmbientModule } from "./modules";
 import { DatabaseModule } from "./database";
 import { LoggingModule } from "./logging";
 import { RolesModule } from "./roles";
 
-const COLLECTIONS_MODULES = [AuthModule, UsersModule, StoriesModule, CharactersModule, RoomsModule];
+const COLLECTIONS_MODULES = [AuthModule, UsersModule, StoriesModule, CharactersModule, RoomsModule, AmbientModule];
 
 @Module({
   imports: [
