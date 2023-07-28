@@ -8,6 +8,7 @@ const MainView: FC = () => {
       <div className="mx-auto my-auto flex flex-col text-center gap-8">
         <h1 className="text-xl">JDRAI</h1>
         <SelectCharacterSection />
+        <SelectCharacterSection />
       </div>
     </div>
   );

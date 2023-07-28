@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FC } from "react";
 import { Character } from "../types";
+import { LOCAL_STORAGE_KEYS } from "@/constants/localStorageKeys";
 
 interface CharacterPreviewProps {
   className?: string;
@@ -9,7 +10,11 @@ interface CharacterPreviewProps {
 
 const CharacterPreview: FC<CharacterPreviewProps> = ({ className, char }) => {
   return (
-    <ul>
+    <ul
+      onClick={() => {
+        localStorage.setItem(LOCAL_STORAGE_KEYS.SELECTED_CHARACTER, JSON.stringify(char));
+      }}
+    >
       <li>
         {char.firstName} {char.lastName}
       </li>

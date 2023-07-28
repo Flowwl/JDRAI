@@ -1,21 +1,21 @@
-import { Controller, Post } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { OpenAIService } from "@backend/externalModules";
-import { STORY_CONTEXT, STORY_GENERATION } from "@backend/modules/stories/prompt";
-import { Story } from "@backend/modules/stories/types";
+import { StoriesPrompt } from "../stories.prompt";
+import { Character } from "@backend/modules/characters/types";
+import { Prop } from "@nestjs/mongoose";
+
+class generateStoryBody {
+  @Prop()
+  selectedCharacter: Character;
+}
 
 @ApiTags("stories")
 @Controller("stories/generate")
 export class GenerateStoriesController {
-  constructor(private readonly openAIService: OpenAIService) {}
+  constructor(private readonly storyPrompt: StoriesPrompt) {}
 
   @Post()
-  async generate() {
-    const result = await this.openAIService.generateResponse([
-      { role: "system", content: STORY_CONTEXT.join("") },
-      { role: "user", content: STORY_GENERATION.join("") }
-    ]);
-    const { description }: { description: Story["description"] } = JSON.parse(result.data.choices[0].message.content);
-    return description;
+  async generate(@Body() body: generateStoryBody) {
+    return this.storyPrompt.generateStoryWithSelectedCharacter(body.selectedCharacter);
   }
 }
