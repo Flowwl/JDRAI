@@ -4,9 +4,23 @@ import { StoriesPrompt } from "../stories.prompt";
 import { Character } from "@backend/modules/characters/types";
 import { Prop } from "@nestjs/mongoose";
 
+export class PreviousStoryLine {
+  @Prop()
+  choosenAction: string;
+
+  @Prop()
+  previousStory: string;
+}
+
 class generateStoryBody {
   @Prop()
   selectedCharacter: Character;
+
+  @Prop({ required: false })
+  previousStoryLine?: PreviousStoryLine;
+
+  // @Prop()
+  // storySummary: string;
 }
 
 @ApiTags("stories")
@@ -16,6 +30,6 @@ export class GenerateStoriesController {
 
   @Post()
   async generate(@Body() body: generateStoryBody) {
-    return this.storyPrompt.generateStoryWithSelectedCharacter(body.selectedCharacter);
+    return this.storyPrompt.generateStoryWithSelectedCharacter(body.selectedCharacter, body.previousStoryLine);
   }
 }
