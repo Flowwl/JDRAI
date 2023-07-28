@@ -45,20 +45,3 @@ export class Character {
 
   img?: string;
 }
-
-export const CHARACTERISTICS = [
-  "firstName",
-  "lastName",
-  "race",
-  "class",
-  "level",
-  "pv",
-  "strength",
-  "dexterity",
-  "constitution",
-  "intelligence",
-  "wisdom",
-  "charisma",
-  "story",
-  "inventory"
-];
