@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
-import { YoutubeAPIModule } from "@backend/externalModules";
+import { OpenAIModule, YoutubeAPIModule } from "@backend/externalModules";
 import { AmbientService } from "./ambient.service";
-import { GetMusicUrlController } from "./controllers";
+import { GetBackgroundImgController, GetMusicUrlController } from "./controllers";
 
 @Module({
-  imports: [YoutubeAPIModule],
+  imports: [YoutubeAPIModule, OpenAIModule],
   providers: [AmbientService],
-  controllers: [GetMusicUrlController]
+  controllers: [GetMusicUrlController, GetBackgroundImgController]
 })
 export class AmbientModule {}

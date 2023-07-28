@@ -1,3 +1,4 @@
 export const ambientQueryKeys = {
-  getMusicUrl: ["get", "musicUrl"]
+  getMusicUrl: ["get", "musicUrl"],
+  getBackgroundImg: ["get", "backgroundImg"]
 };

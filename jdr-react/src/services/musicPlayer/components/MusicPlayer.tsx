@@ -16,7 +16,7 @@ const MusicPlayer: FC<MusicPlayerProps> = ({ keyword = "JDR Ambient music" }) =>
   }
   return (
     <div>
-      <ReactPlayer playing width={0} height={0} url={url} volume={50} muted={isMuted} />
+      <ReactPlayer playing width={0} height={0} url={url} volume={50} muted={isMuted} loop />
       <button onClick={() => setIsMuted((prevState) => !prevState)}>{isMuted ? "Unmute" : "Mute"}</button>
     </div>
   );
