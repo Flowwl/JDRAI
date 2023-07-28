@@ -27,7 +27,7 @@ const StorySection: FC<SelectCharacterSectionProps> = ({ className }) => {
   return (
     <div className={cx(className)}>
       <Button onClick={onSubmit}>Generate Story with selected Character</Button>
-      <div className="flex flex-col">
+      <div className="flex flex-col h-96 overflow-y-auto">
         {stories.map((story) => (
           <div key={story.description} className="flex flex-col justify-center mx-auto mt-5">
             <div className={"border border-gray-50"}>{story.description}</div>
@@ -36,7 +36,7 @@ const StorySection: FC<SelectCharacterSectionProps> = ({ className }) => {
                 <p
                   key={action}
                   className="border border-primary-300 cursor-pointer hover:scale-105 transition duration-200"
-                  onClick={() => chooseAction(action, story.description)}
+                  onClick={() => chooseAction(action, story.summary)}
                 >
                   {action}
                 </p>

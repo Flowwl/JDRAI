@@ -3,6 +3,7 @@ import { AppPrompt } from "@backend/modules/app.prompt";
 import { Character } from "@backend/modules/characters/types";
 import { OpenAIService } from "@backend/externalModules";
 import { ChatCompletionRequestMessage } from "openai";
+import { Story } from "@backend/modules/stories/types";
 
 @Injectable()
 export class StoriesPrompt extends AppPrompt {
@@ -13,7 +14,7 @@ export class StoriesPrompt extends AppPrompt {
   async generateStoryWithSelectedCharacter(
     char: Character,
     previousStoryLine?: { choosenAction: string; previousStory }
-  ) {
+  ): Promise<Story> {
     const result = await this.openAIService.generateResponse([
       { role: "system", content: this.getSystemContext() },
       {
@@ -41,7 +42,10 @@ export class StoriesPrompt extends AppPrompt {
       },
       {
         role: "user",
-        content: `Je choisis de ${previousStoryLine.choosenAction}`
+        content: [
+          `Je choisis de ${previousStoryLine.choosenAction}.`,
+          "Génère-moi la suite de l'histoire sous la forme `{ summary: résumé de tout se qu'il s'est passé jusqu'à maintenant, description: la suite de histoire, actions: liste de 3 actions en string à effectuer pour avancer dans l'histoire}`"
+        ].join(" ")
       }
     ];
   }
@@ -55,7 +59,7 @@ export class StoriesPrompt extends AppPrompt {
       "Génère-moi une histoire avec 3 actions à effectuer par le jouer pour avancer dans l'histoire",
       "Retourne-moi juste le code json sans rien d'autre",
       "Les valeurs seront en français.",
-      "Le JSON sera sous la forme `{ description: mon histoire, actions: liste de 3 actions en string à effectuer pour avancer dans l'histoire}`"
+      "Le JSON sera sous la forme `{ summary: résumé de tout se qu'il s'est passé jusqu'à maintenant, description: mon histoire, actions: liste de 3 actions en string à effectuer pour avancer dans l'histoire}`"
     ].join(" ");
   }
 }

@@ -6,4 +6,7 @@ export class Story {
 
   @Prop()
   actions: string[];
+
+  @Prop()
+  context: string;
 }
